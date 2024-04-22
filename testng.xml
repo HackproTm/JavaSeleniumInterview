@@ -3,8 +3,7 @@
 <suite name="JavaSeleniumInterview">
    <test name="LoginTest" >
        <classes>
-           <class name="com.hackpro.Tests.Access.LoginTest" >
-           </class>
+           <class name="Tests.Access.LoginTest" />
        </classes>
    </test>
 </suite>

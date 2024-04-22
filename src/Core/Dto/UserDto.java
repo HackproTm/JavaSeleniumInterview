@@ -1,4 +1,4 @@
-package com.hackpro.TestCore.Ui.Common.Dto;
+package Core.Dto;
 
 public class UserDto {
     private String userName;

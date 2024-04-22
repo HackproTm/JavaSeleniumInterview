@@ -1,37 +1,35 @@
-package com.hackpro.TestCore.Ui.Pages;
+package Core.Pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.jetbrains.annotations.NotNull;
 
-import Hackpro.TestCore.Resources.Messages;
+import Core.Resources.Messages;
+import Core.Dto.*;
 
 public final class LogInPage extends BasePage {
-    @FindBy(how = How.Id, using = "email")
+    @FindBy(how = How.ID, using = "email")
     private WebElement fieldEmail;
     
-    @FindBy(how = How.Id, using = "password")
+    @FindBy(how = How.ID, using = "password")
     private WebElement fieldPassword;
     
-    @FindBy(how = How.Id, using = "btnLogin")
+    @FindBy(how = How.XPATH, using = ".//input[@value =  'Login']")
     private WebElement buttonLogin;
 
-    @FindBy(how = How.Id, using = "btnNext")
+    @FindBy(how = How.XPATH, using = ".//a[text() =  'New User']")
     private WebElement buttonNewUser;
-
-    Messages.
     
     public void logIn(UserDto user) {
         if (user == null) throw new IllegalArgumentException(Messages.ErrorParameterIsNull("user"));
-        waitForLoadPage();
+        waitForLoadPage(0);
         typeIntoField(fieldEmail, user.getUserName());
         typeIntoField(fieldPassword, user.getPassword());
-        clickInElement(buttonLogin);
+        clickInElement(buttonLogin, false);
     }
     
     public void newUser() {
-    	waitForLoadPage();
-        clickInElement(buttonNewUser);
+    	waitForLoadPage(0);
+        clickInElement(buttonNewUser, false);
     }
 }
